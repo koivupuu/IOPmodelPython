@@ -1,9 +1,6 @@
-.Rproj.user
-.Rhistory
-.Rdata
-.httr-oauth
-.DS_Store
+IOPModel
+__pycache__
+.pytest_cache
+iopmodel.egg-info
 
-# inst/
 
-test_*/

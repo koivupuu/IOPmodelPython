@@ -1,0 +1,395 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="WOPP module" href="WOPP.html" /><link rel="prev" title="IOP_models_func module" href="IOP_models_func.html" />
+
+    <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>IOP_models_main module - IOPmodelPython 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">IOPmodelPython 0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">IOPmodelPython 0.1 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">Python</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Python</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="IOP_models_func.html">IOP_models_func module</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">IOP_models_main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WOPP.html">WOPP module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="global_variables.html">global_variables module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc.html">misc module</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/IOP_models_main.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="module-IOP_models_main">
+<span id="iop-models-main-module"></span><h1>IOP_models_main module<a class="headerlink" href="#module-IOP_models_main" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="IOP_models_main.IOP_four_comp">
+<span class="sig-prename descclassname"><span class="pre">IOP_models_main.</span></span><span class="sig-name descname"><span class="pre">IOP_four_comp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Chl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ag440</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.18</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ISM</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Temp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Sal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qt_bd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qt_md</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_phyto</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S_cdom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.017422</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bbdtilde</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0216</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([400,</span> <span class="pre">401,</span> <span class="pre">402,</span> <span class="pre">403,</span> <span class="pre">404,</span> <span class="pre">405,</span> <span class="pre">406,</span> <span class="pre">407,</span> <span class="pre">408,</span> <span class="pre">409,</span> <span class="pre">410,</span> <span class="pre">411,</span> <span class="pre">412,</span> <span class="pre">413,</span> <span class="pre">414,</span> <span class="pre">415,</span> <span class="pre">416,</span> <span class="pre">417,</span> <span class="pre">418,</span> <span class="pre">419,</span> <span class="pre">420,</span> <span class="pre">421,</span> <span class="pre">422,</span> <span class="pre">423,</span> <span class="pre">424,</span> <span class="pre">425,</span> <span class="pre">426,</span> <span class="pre">427,</span> <span class="pre">428,</span> <span class="pre">429,</span> <span class="pre">430,</span> <span class="pre">431,</span> <span class="pre">432,</span> <span class="pre">433,</span> <span class="pre">434,</span> <span class="pre">435,</span> <span class="pre">436,</span> <span class="pre">437,</span> <span class="pre">438,</span> <span class="pre">439,</span> <span class="pre">440,</span> <span class="pre">441,</span> <span class="pre">442,</span> <span class="pre">443,</span> <span class="pre">444,</span> <span class="pre">445,</span> <span class="pre">446,</span> <span class="pre">447,</span> <span class="pre">448,</span> <span class="pre">449,</span> <span class="pre">450,</span> <span class="pre">451,</span> <span class="pre">452,</span> <span class="pre">453,</span> <span class="pre">454,</span> <span class="pre">455,</span> <span class="pre">456,</span> <span class="pre">457,</span> <span class="pre">458,</span> <span class="pre">459,</span> <span class="pre">460,</span> <span class="pre">461,</span> <span class="pre">462,</span> <span class="pre">463,</span> <span class="pre">464,</span> <span class="pre">465,</span> <span class="pre">466,</span> <span class="pre">467,</span> <span class="pre">468,</span> <span class="pre">469,</span> <span class="pre">470,</span> <span class="pre">471,</span> <span class="pre">472,</span> <span class="pre">473,</span> <span class="pre">474,</span> <span class="pre">475,</span> <span class="pre">476,</span> <span class="pre">477,</span> <span class="pre">478,</span> <span class="pre">479,</span> <span class="pre">480,</span> <span class="pre">481,</span> <span class="pre">482,</span> <span class="pre">483,</span> <span class="pre">484,</span> <span class="pre">485,</span> <span class="pre">486,</span> <span class="pre">487,</span> <span class="pre">488,</span> <span class="pre">489,</span> <span class="pre">490,</span> <span class="pre">491,</span> <span class="pre">492,</span> <span class="pre">493,</span> <span class="pre">494,</span> <span class="pre">495,</span> <span class="pre">496,</span> <span class="pre">497,</span> <span class="pre">498,</span> <span class="pre">499,</span> <span class="pre">500,</span> <span class="pre">501,</span> <span class="pre">502,</span> <span class="pre">503,</span> <span class="pre">504,</span> <span class="pre">505,</span> <span class="pre">506,</span> <span class="pre">507,</span> <span class="pre">508,</span> <span class="pre">509,</span> <span class="pre">510,</span> <span class="pre">511,</span> <span class="pre">512,</span> <span class="pre">513,</span> <span class="pre">514,</span> <span class="pre">515,</span> <span class="pre">516,</span> <span class="pre">517,</span> <span class="pre">518,</span> <span class="pre">519,</span> <span class="pre">520,</span> <span class="pre">521,</span> <span class="pre">522,</span> <span class="pre">523,</span> <span class="pre">524,</span> <span class="pre">525,</span> <span class="pre">526,</span> <span class="pre">527,</span> <span class="pre">528,</span> <span class="pre">529,</span> <span class="pre">530,</span> <span class="pre">531,</span> <span class="pre">532,</span> <span class="pre">533,</span> <span class="pre">534,</span> <span class="pre">535,</span> <span class="pre">536,</span> <span class="pre">537,</span> <span class="pre">538,</span> <span class="pre">539,</span> <span class="pre">540,</span> <span class="pre">541,</span> <span class="pre">542,</span> <span class="pre">543,</span> <span class="pre">544,</span> <span class="pre">545,</span> <span class="pre">546,</span> <span class="pre">547,</span> <span class="pre">548,</span> <span class="pre">549,</span> <span class="pre">550,</span> <span class="pre">551,</span> <span class="pre">552,</span> <span class="pre">553,</span> <span class="pre">554,</span> <span class="pre">555,</span> <span class="pre">556,</span> <span class="pre">557,</span> <span class="pre">558,</span> <span class="pre">559,</span> <span class="pre">560,</span> <span class="pre">561,</span> <span class="pre">562,</span> <span class="pre">563,</span> <span class="pre">564,</span> <span class="pre">565,</span> <span class="pre">566,</span> <span class="pre">567,</span> <span class="pre">568,</span> <span class="pre">569,</span> <span class="pre">570,</span> <span class="pre">571,</span> <span class="pre">572,</span> <span class="pre">573,</span> <span class="pre">574,</span> <span class="pre">575,</span> <span class="pre">576,</span> <span class="pre">577,</span> <span class="pre">578,</span> <span class="pre">579,</span> <span class="pre">580,</span> <span class="pre">581,</span> <span class="pre">582,</span> <span class="pre">583,</span> <span class="pre">584,</span> <span class="pre">585,</span> <span class="pre">586,</span> <span class="pre">587,</span> <span class="pre">588,</span> <span class="pre">589,</span> <span class="pre">590,</span> <span class="pre">591,</span> <span class="pre">592,</span> <span class="pre">593,</span> <span class="pre">594,</span> <span class="pre">595,</span> <span class="pre">596,</span> <span class="pre">597,</span> <span class="pre">598,</span> <span class="pre">599,</span> <span class="pre">600,</span> <span class="pre">601,</span> <span class="pre">602,</span> <span class="pre">603,</span> <span class="pre">604,</span> <span class="pre">605,</span> <span class="pre">606,</span> <span class="pre">607,</span> <span class="pre">608,</span> <span class="pre">609,</span> <span class="pre">610,</span> <span class="pre">611,</span> <span class="pre">612,</span> <span class="pre">613,</span> <span class="pre">614,</span> <span class="pre">615,</span> <span class="pre">616,</span> <span class="pre">617,</span> <span class="pre">618,</span> <span class="pre">619,</span> <span class="pre">620,</span> <span class="pre">621,</span> <span class="pre">622,</span> <span class="pre">623,</span> <span class="pre">624,</span> <span class="pre">625,</span> <span class="pre">626,</span> <span class="pre">627,</span> <span class="pre">628,</span> <span class="pre">629,</span> <span class="pre">630,</span> <span class="pre">631,</span> <span class="pre">632,</span> <span class="pre">633,</span> <span class="pre">634,</span> <span class="pre">635,</span> <span class="pre">636,</span> <span class="pre">637,</span> <span class="pre">638,</span> <span class="pre">639,</span> <span class="pre">640,</span> <span class="pre">641,</span> <span class="pre">642,</span> <span class="pre">643,</span> <span class="pre">644,</span> <span class="pre">645,</span> <span class="pre">646,</span> <span class="pre">647,</span> <span class="pre">648,</span> <span class="pre">649,</span> <span class="pre">650,</span> <span class="pre">651,</span> <span class="pre">652,</span> <span class="pre">653,</span> <span class="pre">654,</span> <span class="pre">655,</span> <span class="pre">656,</span> <span class="pre">657,</span> <span class="pre">658,</span> <span class="pre">659,</span> <span class="pre">660,</span> <span class="pre">661,</span> <span class="pre">662,</span> <span class="pre">663,</span> <span class="pre">664,</span> <span class="pre">665,</span> <span class="pre">666,</span> <span class="pre">667,</span> <span class="pre">668,</span> <span class="pre">669,</span> <span class="pre">670,</span> <span class="pre">671,</span> <span class="pre">672,</span> <span class="pre">673,</span> <span class="pre">674,</span> <span class="pre">675,</span> <span class="pre">676,</span> <span class="pre">677,</span> <span class="pre">678,</span> <span class="pre">679,</span> <span class="pre">680,</span> <span class="pre">681,</span> <span class="pre">682,</span> <span class="pre">683,</span> <span class="pre">684,</span> <span class="pre">685,</span> <span class="pre">686,</span> <span class="pre">687,</span> <span class="pre">688,</span> <span class="pre">689,</span> <span class="pre">690,</span> <span class="pre">691,</span> <span class="pre">692,</span> <span class="pre">693,</span> <span class="pre">694,</span> <span class="pre">695,</span> <span class="pre">696,</span> <span class="pre">697,</span> <span class="pre">698,</span> <span class="pre">699,</span> <span class="pre">700,</span> <span class="pre">701,</span> <span class="pre">702,</span> <span class="pre">703,</span> <span class="pre">704,</span> <span class="pre">705,</span> <span class="pre">706,</span> <span class="pre">707,</span> <span class="pre">708,</span> <span class="pre">709,</span> <span class="pre">710,</span> <span class="pre">711,</span> <span class="pre">712,</span> <span class="pre">713,</span> <span class="pre">714,</span> <span class="pre">715,</span> <span class="pre">716,</span> <span class="pre">717,</span> <span class="pre">718,</span> <span class="pre">719,</span> <span class="pre">720,</span> <span class="pre">721,</span> <span class="pre">722,</span> <span class="pre">723,</span> <span class="pre">724,</span> <span class="pre">725,</span> <span class="pre">726,</span> <span class="pre">727,</span> <span class="pre">728,</span> <span class="pre">729,</span> <span class="pre">730,</span> <span class="pre">731,</span> <span class="pre">732,</span> <span class="pre">733,</span> <span class="pre">734,</span> <span class="pre">735,</span> <span class="pre">736,</span> <span class="pre">737,</span> <span class="pre">738,</span> <span class="pre">739,</span> <span class="pre">740,</span> <span class="pre">741,</span> <span class="pre">742,</span> <span class="pre">743,</span> <span class="pre">744,</span> <span class="pre">745,</span> <span class="pre">746,</span> <span class="pre">747,</span> <span class="pre">748,</span> <span class="pre">749,</span> <span class="pre">750,</span> <span class="pre">751,</span> <span class="pre">752,</span> <span class="pre">753,</span> <span class="pre">754,</span> <span class="pre">755,</span> <span class="pre">756,</span> <span class="pre">757,</span> <span class="pre">758,</span> <span class="pre">759,</span> <span class="pre">760,</span> <span class="pre">761,</span> <span class="pre">762,</span> <span class="pre">763,</span> <span class="pre">764,</span> <span class="pre">765,</span> <span class="pre">766,</span> <span class="pre">767,</span> <span class="pre">768,</span> <span class="pre">769,</span> <span class="pre">770,</span> <span class="pre">771,</span> <span class="pre">772,</span> <span class="pre">773,</span> <span class="pre">774,</span> <span class="pre">775,</span> <span class="pre">776,</span> <span class="pre">777,</span> <span class="pre">778,</span> <span class="pre">779,</span> <span class="pre">780,</span> <span class="pre">781,</span> <span class="pre">782,</span> <span class="pre">783,</span> <span class="pre">784,</span> <span class="pre">785,</span> <span class="pre">786,</span> <span class="pre">787,</span> <span class="pre">788,</span> <span class="pre">789,</span> <span class="pre">790,</span> <span class="pre">791,</span> <span class="pre">792,</span> <span class="pre">793,</span> <span class="pre">794,</span> <span class="pre">795,</span> <span class="pre">796,</span> <span class="pre">797,</span> <span class="pre">798,</span> <span class="pre">799,</span> <span class="pre">800])</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A_d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">G_d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lib_cdom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aw_version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ag_seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#IOP_models_main.IOP_four_comp" title="Link to this definition">¶</a></dt>
+<dd><p>Compute inherent optical properties (IOPs) and related spectral quantities for a four-component water model.
+This function models the optical properties of water as a combination of four main components: phytoplankton,
+detritus, colored dissolved organic matter (CDOM), and pure water. It calculates absorption and backscattering
+spectra, as well as remote sensing reflectance estimates, based on input parameters describing the
+concentrations and properties of these components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Chl</strong> (<em>float</em><em>, </em><em>optional</em>) – Chlorophyll-a concentration (mg/m^3). Default is 1.</p></li>
+<li><p><strong>ag440</strong> (<em>float</em><em>, </em><em>optional</em>) – CDOM absorption at 440 nm (1/m). Default is 0.18.</p></li>
+<li><p><strong>ISM</strong> (<em>float</em><em>, </em><em>optional</em>) – Inorganic suspended matter concentration (g/m^3). Default is 1.</p></li>
+<li><p><strong>Temp</strong> (<em>float</em><em>, </em><em>optional</em>) – Water temperature (°C). Default is 20.</p></li>
+<li><p><strong>Sal</strong> (<em>float</em><em>, </em><em>optional</em>) – Salinity (psu). Default is 15.</p></li>
+<li><p><strong>qt_bd</strong> (<em>float</em><em>, </em><em>optional</em>) – Fraction of detrital backscattering. Default is 0.5.</p></li>
+<li><p><strong>qt_md</strong> (<em>float</em><em>, </em><em>optional</em>) – Fraction of detrital mass-specific scattering. Default is 0.5.</p></li>
+<li><p><strong>frac_phyto</strong> (<em>array-like</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Fractional composition of phytoplankton types. If None, random fractions are generated.</p></li>
+<li><p><strong>S_cdom</strong> (<em>float</em><em>, </em><em>optional</em>) – CDOM spectral slope (nm^-1). Default is 0.017422.</p></li>
+<li><p><strong>bbdtilde</strong> (<em>float</em><em>, </em><em>optional</em>) – Backscattering ratio for detritus. Default is 0.0216.</p></li>
+<li><p><strong>wavelen</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Wavelengths (nm) at which to compute spectra. Default is <cite>wavelen_IOP</cite>.</p></li>
+<li><p><strong>A_d</strong> (<em>array-like</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Detrital absorption coefficients. Default is None.</p></li>
+<li><p><strong>G_d</strong> (<em>array-like</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Detrital spectral shape parameters. Default is None.</p></li>
+<li><p><strong>lib_cdom</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, use library-based CDOM model. Default is True.</p></li>
+<li><p><strong>aw_version</strong> (<em>int</em><em>, </em><em>optional</em>) – Version of pure water absorption coefficients to use. Default is 3.</p></li>
+<li><p><strong>ag_seed</strong> (<em>int</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Random seed for CDOM library selection. Default is None.
+Additional keyword arguments passed to phytoplankton IOP model.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p><strong>result</strong> –</p>
+<dl class="simple">
+<dt>Dictionary containing:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>’spec’: pandas.DataFrame</dt><dd><p>Spectral quantities (absorption, backscattering, reflectance, etc.) as columns.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>’parm’: pandas.DataFrame</dt><dd><p>Summary of input and derived parameters.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>’attr_aph676’: float or None</dt><dd><p>Attribute for aph(676) if available.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>’warn_neg_bd’: bool or None</dt><dd><p>Warning flag if negative detrital backscattering detected.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This function relies on several external helper functions and data structures, such as <cite>IOP_d_B22_C2</cite>, <cite>IOP_ph_B22_C2</cite>, <cite>IOP_cdom_B22_C2_lib</cite>, <cite>WOPP</cite>, and <cite>phyto_lib_info</cite>.</p>
+</dd></dl>
+
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="WOPP.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">WOPP module</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="IOP_models_func.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">IOP_models_func module</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">IOP_models_main module</a><ul>
+<li><a class="reference internal" href="#IOP_models_main.IOP_four_comp"><code class="docutils literal notranslate"><span class="pre">IOP_four_comp()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    </body>
+</html>
