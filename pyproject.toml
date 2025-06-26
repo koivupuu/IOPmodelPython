@@ -1,3 +1,24 @@
 [build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "iopmodel"
+version = "0.1.0"
+description = "A Python package for modeling inherent optical properties of water"
+authors = [
+  { name = "Your Name", email = "you@example.com" }
+]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+dependencies = [
+  "numpy",
+  "pandas"
+]
+
+[tool.hatch.build]
+include = [
+  "iopmodel/**/*",
+  "iopmodel/data/**/*"
+]

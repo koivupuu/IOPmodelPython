@@ -1,6 +1,17 @@
+# Python venv
 IOPModel
-__pycache__
-.pytest_cache
-iopmodel.egg-info
 
+# Python build artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+
+# Packaging
+build/
+dist/
+*.egg-info/
+
+# Installer logs
+pip-log.txt
 
